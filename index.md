@@ -3,5 +3,6 @@
 ## emos
 - [movinRectangle](CScode/movinRectangle/sketch.js)
 - [LoopingLeaps](CScode/LoopingLeaps/sketch.js)
-
+- [Arrayal](CScode/Arrayal/sketch.js)
+- [CubicShake](CScode/CubicShake/sketch.js)
 ## Prejects
