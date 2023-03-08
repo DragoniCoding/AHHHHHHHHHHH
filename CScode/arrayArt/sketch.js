@@ -1,4 +1,4 @@
-// Project Title
+// wire frame loops
 // Your Name
 // Date
 //
@@ -13,3 +13,9 @@ function setup() {
 function draw() {
   background(220);
 }
+
+
+//notes
+// http://dada.compart-bremen.de/item/agent/16
+// do something with wire framing and looped disarray
+// work with linear disarray

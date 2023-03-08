@@ -7,4 +7,4 @@
 - [CubicShake](CScode/CubicShake/sketch.js)
 
 ## Prejects
-- [arrayObjection](CScode/arry)
+- [arrayObjection](CScode/arrayArt/sketch.js)
