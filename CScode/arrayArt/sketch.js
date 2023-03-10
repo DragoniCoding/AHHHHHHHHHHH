@@ -12,10 +12,20 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
   screenFavor();
+  spawnSquare(width/2, height/2);
+  spawnRect(width/2, height/2);
 }
 
 function draw() {
 
+}
+
+function shapeDisplay() {
+  for (let i=0;i<shapes.length;i++) {
+    if (shapes[i].is==="square") {
+      rect();
+    }
+  }
 }
 
 function screenFavor() {
@@ -29,6 +39,7 @@ function screenFavor() {
 
 function spawnSquare(leX, leY) {
   let newSquare = {
+    is: "square",
     x: leX,
     y: leY,
     aSize: random(10, favor/3),
@@ -38,7 +49,7 @@ function spawnSquare(leX, leY) {
 
 function spawnRect(zeX, zeY) {
   let newRect = {
-    is: "square",
+    is: "rect",
     x: zeX,
     y: zeY,
     length: random(5, favor/3),
