@@ -26,5 +26,6 @@ function spawnRects(){
 
   let high = 0;
   high = noise(time)*height;
+  time += 0.07;
 }
 

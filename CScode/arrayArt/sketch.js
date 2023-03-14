@@ -23,7 +23,7 @@ function draw() {
 function shapeDisplay() {
   for (let i=0;i<shapes.length;i++) {
     if (shapes[i].is==="square") {
-      rect();
+      rect(shapes[i].x, shapes[i].y, shapes[i].aSize, shapes[i].aSize);
     }
   }
 }
