@@ -5,6 +5,7 @@
 - [LoopingLeaps](CScode/LoopingLeaps/sketch.js)
 - [Arrayal](CScode/Arrayal/sketch.js)
 - [CubicShake](CScode/CubicShake/sketch.js)
+- [terrainGeneration](CScode/terrainGeneration)
 
 ## Prejects
 - [arrayObjection](CScode/arrayArt/sketch.js)
