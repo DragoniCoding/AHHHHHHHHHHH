@@ -7,23 +7,42 @@
 
 let favor = 0;
 let shapes = [];
+let colours = ["green", "red", "blue", "white", "yellow"];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
   screenFavor();
-  spawnSquare(width/2, height/2);
-  spawnRect(width/2, height/2);
+  angleMode(DEGREES);
+  for (let e=0; e<1000; e++){
+    spawnSquare(width/2, height/2);
+    spawnRect(width/2, height/2);
+  }
 }
 
 function draw() {
-
+  shapeDisplay();
 }
 
 function shapeDisplay() {
   for (let i=0;i<shapes.length;i++) {
     if (shapes[i].is==="square") {
-      rect(shapes[i].x, shapes[i].y, shapes[i].aSize, shapes[i].aSize);
+      push();
+      stroke(shapes[i].colour);
+      fill(0,0,0, 0);
+      translate(shapes[i].x, shapes[i].y);
+      rotate(i);
+      rect(0, 0, shapes[i].aSize, shapes[i].aSize);
+      pop();
+    }
+    else if (shapes[i].is==="rect"){
+      push();
+      stroke(shapes[i].colour);
+      fill(0,0,0, 0);
+      translate(shapes[i].x, shapes[i].y);
+      rotate(i);
+      rect(0, 0, shapes[i].length, shapes[i].wideth);
+      pop();
     }
   }
 }
@@ -43,6 +62,8 @@ function spawnSquare(leX, leY) {
     x: leX,
     y: leY,
     aSize: random(10, favor/3),
+    colour: color(random(255), random(255), random(255)),
+    rotato: random(360),
   };
   shapes.push(newSquare);
 }
@@ -54,6 +75,7 @@ function spawnRect(zeX, zeY) {
     y: zeY,
     length: random(5, favor/3),
     wideth: random(25, favor/3),
+    colour: color(random(255), random(255), random(255)),
   };
   shapes.push(newRect);
 }
