@@ -1,27 +1,37 @@
 // wire frame loops
-// Your Name
-// Date
+// Aidan J. Thorpe
+//  - March 20, 2023
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// made the color a random selection from a curated set of colors
 
 let favor = 0;
-let shapes = [];
-let colours = ["green", "red", "blue", "white", "yellow"];
+let shapes = []; //shape bank
+let colours = ["green", "red", "blue", "white", "yellow", "lime", 
+  "magenta", "cyan", "aquamarine", "chartreuse", "darkorchid", "darkseagreen",
+  "snow", "thistle", "springgreen", "violet", "palegreen", "orangered",
+  "lightskyblue"]; //color bank
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
   screenFavor();
-  angleMode(DEGREES);
-  for (let e=0; e<1000; e++){
+  angleMode(DEGREES); // don't judge me, it's what I understand
+  for (let e=0; e<300; e++){
     spawnSquare(width/2, height/2);
     spawnRect(width/2, height/2);
-  }
+  } // filling the shape bank
 }
 
 function draw() {
   shapeDisplay();
+}
+
+function ringingIt() {
+  for (let r=0; r<100; r++) {
+    noFill;
+    
+  }
 }
 
 function shapeDisplay() {
@@ -29,16 +39,16 @@ function shapeDisplay() {
     if (shapes[i].is==="square") {
       push();
       stroke(shapes[i].colour);
-      fill(0,0,0, 0);
+      noFill();
       translate(shapes[i].x, shapes[i].y);
-      rotate(i);
+      rotate(i+15);
       rect(0, 0, shapes[i].aSize, shapes[i].aSize);
       pop();
     }
     else if (shapes[i].is==="rect"){
       push();
       stroke(shapes[i].colour);
-      fill(0,0,0, 0);
+      noFill();
       translate(shapes[i].x, shapes[i].y);
       rotate(i);
       rect(0, 0, shapes[i].length, shapes[i].wideth);
@@ -61,8 +71,8 @@ function spawnSquare(leX, leY) {
     is: "square",
     x: leX,
     y: leY,
-    aSize: random(10, favor/3),
-    colour: color(random(255), random(255), random(255)),
+    aSize: random(10, favor/2),
+    colour: color(random(colours)),
     rotato: random(360),
   };
   shapes.push(newSquare);
@@ -73,9 +83,9 @@ function spawnRect(zeX, zeY) {
     is: "rect",
     x: zeX,
     y: zeY,
-    length: random(5, favor/3),
-    wideth: random(25, favor/3),
-    colour: color(random(255), random(255), random(255)),
+    length: random(50, favor/2),
+    wideth: random(5, favor/2),
+    colour: color(random(colours)),
   };
   shapes.push(newRect);
 }
