@@ -11,6 +11,7 @@ let colours = ["green", "red", "blue", "white", "yellow", "lime",
   "magenta", "cyan", "aquamarine", "chartreuse", "darkorchid", "darkseagreen",
   "snow", "thistle", "springgreen", "violet", "palegreen", "orangered",
   "lightskyblue"]; //color bank
+let ring = "black";
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -25,12 +26,27 @@ function setup() {
 
 function draw() {
   shapeDisplay();
+  ringingIt(10);
 }
 
-function ringingIt() {
-  for (let r=0; r<100; r++) {
-    noFill;
-    
+function ringingIt(thick) {
+  for (let r=0; r<favor; r+= favor/9) {
+    push();
+    noFill();
+    flipFlop();
+    stroke("black");
+    strokeWeight(3);
+    circle(width/2, height/2, r);
+    pop();
+  }
+}
+
+function flipFlop(){
+  if (ring === "black"){
+    ring = "white";
+  }
+  else {
+    ring = "black";
   }
 }
 
