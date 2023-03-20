@@ -11,7 +11,7 @@ let colours = ["green", "red", "blue", "white", "yellow", "lime",
   "magenta", "cyan", "aquamarine", "chartreuse", "darkorchid", "darkseagreen",
   "snow", "thistle", "springgreen", "violet", "palegreen", "orangered",
   "lightskyblue"]; //color bank
-let ring = ["black", "black"];
+let ring = ["black", "black"]; // colour order for the rings
 let ringNum = 9;
 
 function setup() {
@@ -33,7 +33,7 @@ function draw() {
 }
 
 function flipFlop(){
-  for (let i = 0; i<= favor/ringNum-2; i++) {
+  for (let i = 0; i<= ringNum; i++) {
     let rand = random(100);
     if (rand >= 50) {
       ring.push("white");
@@ -42,7 +42,7 @@ function flipFlop(){
       ring.push("black");
     }
   }
-} // Causes the rings to start out as 
+} // adds either a black or white ring to the ring color bank
 
 function ringingIt() {
   for (let r=0; r<favor; r+= favor/ringNum) {
@@ -113,10 +113,10 @@ function spawnRect(zeX, zeY) {
   shapes.push(newRect);
 } // Creates a rectangle with a random length, width, rotation, and colour
 
-//notes
+//in progress notes for self
 // http://dada.compart-bremen.de/item/agent/16
 //https://spin.atomicobject.com/2021/12/14/generative-art-zero-random/
 // do something with wire framing and looped disarray
-// work with linear disarray
+// work with linear disarray... edit: forgot to do this
 // search terms are nested loop circle and algorithmic art
-// try switching so the wire frame is only visible in the ring-strokes
+// try switching so the wire frame is only visible in the ring-strokes... edit: this failed spectacularly, reverted it back
