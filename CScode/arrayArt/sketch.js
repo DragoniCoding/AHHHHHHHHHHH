@@ -22,24 +22,25 @@ function setup() {
     spawnSquare(width/2, height/2);
     spawnRect(width/2, height/2);
   } // filling the shape bank
+  shapeDisplay();
+  ringingIt();
 }
 
 function draw() {
-  shapeDisplay();
-  ringingIt(10);
+  
 }
 
-function ringingIt(thick) {
+function ringingIt() {
+  flipFlop();
   for (let r=0; r<favor; r+= favor/9) {
     push();
     noFill();
-    flipFlop();
     stroke("black");
     strokeWeight(3);
     circle(width/2, height/2, r);
     pop();
   }
-}
+} // Adds rings originating from the centre and spreads out at equal distances
 
 function flipFlop(){
   if (ring === "black"){
@@ -48,7 +49,7 @@ function flipFlop(){
   else {
     ring = "black";
   }
-}
+} // Causes the rings to switch between black and white, pending trouble-shooting
 
 function shapeDisplay() {
   for (let i=0;i<shapes.length;i++) {
@@ -71,7 +72,7 @@ function shapeDisplay() {
       pop();
     }
   }
-}
+} // Displayes all pre-created shapes
 
 function screenFavor() {
   if (width >= height) {
@@ -80,7 +81,7 @@ function screenFavor() {
   else {
     favor = height;
   }
-}
+} // creates a variable that is determined by if the screen is wider or taller
 
 function spawnSquare(leX, leY) {
   let newSquare = {
@@ -92,7 +93,7 @@ function spawnSquare(leX, leY) {
     rotato: random(360),
   };
   shapes.push(newSquare);
-}
+} // Creates a square with a random size, rotation, and colour
 
 function spawnRect(zeX, zeY) {
   let newRect = {
@@ -102,9 +103,10 @@ function spawnRect(zeX, zeY) {
     length: random(50, favor/2),
     wideth: random(5, favor/2),
     colour: color(random(colours)),
+    rotato: random(360),
   };
   shapes.push(newRect);
-}
+} // Creates a rectangle with a random length, width, rotation, and colour
 
 //notes
 // http://dada.compart-bremen.de/item/agent/16
@@ -112,3 +114,4 @@ function spawnRect(zeX, zeY) {
 // do something with wire framing and looped disarray
 // work with linear disarray
 // search terms are nested loop circle and algorithmic art
+// try switching so the wire frame is only visible in the ring-strokes
