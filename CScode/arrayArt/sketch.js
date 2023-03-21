@@ -1,6 +1,6 @@
 // wire frame loops
 // Aidan J. Thorpe
-//  - March 20, 2023
+// March ~13, 2023 - March 20, 2023
 //
 // Extra for Experts:
 // made the color a random selection from a curated set of colors
