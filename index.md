@@ -1,12 +1,13 @@
 # AHH CS30 2023
 
 ## emos
-- [movinRectangle](CScode/movinRectangle/sketch.js)
-- [LoopingLeaps](CScode/LoopingLeaps/sketch.js)
-- [Arrayal](CScode/Arrayal/sketch.js)
-- [CubicShake](CScode/CubicShake/sketch.js)
-- [terrainGeneration](CScode/terrainGeneration/sketch.js)
-- [createGrid](CScode/gridCreation/sketch.js)
+- [movinRectangle](CScode/movinRectangle/)
+- [LoopingLeaps](CScode/LoopingLeaps/)
+- [Arrayal](CScode/Arrayal/)
+- [CubicShake](CScode/CubicShake/)
+- [terrainGeneration](CScode/terrainGeneration/)
+- [createGrid](CScode/gridCreation/)
+- [array ]()
 
 ## Prejects
-- [arrayObjection](CScode/arrayArt/sketch.js)
+- [arrayObjection](CScode/arrayArt/)
