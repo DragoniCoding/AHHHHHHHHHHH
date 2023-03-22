@@ -4,10 +4,11 @@
 - [movinRectangle](CScode/movinRectangle/)
 - [LoopingLeaps](CScode/LoopingLeaps/)
 - [Arrayal](CScode/Arrayal/)
+- [Generated Tile Art](CScode/GeneratedArt/)
 - [CubicShake](CScode/CubicShake/)
+- [Perlin Noise](CScode/perlinBubbles/)
 - [terrainGeneration](CScode/terrainGeneration/)
 - [createGrid](CScode/gridCreation/)
-- [array ]()
 - [Game of Life](CScode/LifeGame/)
 
 ## Prejects
