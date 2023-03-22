@@ -8,6 +8,7 @@
 - [terrainGeneration](CScode/terrainGeneration/)
 - [createGrid](CScode/gridCreation/)
 - [array ]()
+- [Game of Life](CScode/LifeGame/)
 
 ## Prejects
 - [arrayObjection](CScode/arrayArt/)
