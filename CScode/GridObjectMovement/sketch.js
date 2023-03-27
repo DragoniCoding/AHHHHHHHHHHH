@@ -9,13 +9,17 @@
 
 let grid;
 
-const ROWS = 10;
-const COLS = 10;
+const ROWS = 25;
+const COLS = 25;
 let cellSize;
+let pX = 0;
+let pY = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   grid = createRandomGrid(ROWS, COLS);
+
+  grid[pY][pX] = 9;
 
   if (width < height) {
     cellSize = width/ROWS;
@@ -33,6 +37,38 @@ function draw() {
 function keyTyped() {
   if (key === "r") {
     grid = createRandomGrid(ROWS, COLS);
+  }
+  if (key === "s") { //move down
+    moveP(0, 1);
+  }
+  if (key === "w") { //move up
+    moveP(0, -1);
+  }
+  if (key === "d") { //move right
+    moveP(1, 0);
+  }
+  if (key === "a") { //move left
+    moveP(-1, 0);
+  }
+}
+
+function moveP(x, y) {
+  //sanity check for edge cases
+  if (pX + x >= 0 && pX + x < COLS &&
+    pY + y >= 0 && pY + y < ROWS) {
+  
+    //check if going to hit wall
+    if (grid[pY+y][pX+x] === 0) {
+      let tempX = pX;
+      let tempY = pY;
+  
+      pX += x;
+      pY += y;
+  
+      //update grid
+      grid[pY][pX] = 9;
+      grid[tempY][tempX] = 0;
+    }
   }
 }
 
@@ -57,6 +93,9 @@ function displayGrid() {
       }
       else if (grid[y][x] === 0) {
         fill("white");
+      }
+      else if (grid[y][x] === 9) {
+        fill("green");
       }
       rect(x * cellSize, y * cellSize, cellSize, cellSize);
     }

@@ -10,6 +10,7 @@
 - [terrainGeneration](CScode/terrainGeneration/)
 - [createGrid](CScode/gridCreation/)
 - [Game of Life](CScode/LifeGame/)
+- [Movement Within Grid](CScode/GridObjectMovement/)
 
 ## Prejects
 - [arrayObjection](CScode/arrayArt/)
