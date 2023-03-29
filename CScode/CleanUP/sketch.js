@@ -3,7 +3,7 @@
 // March 24, 2023 - April 6, 2023
 
 // Extra for Experts:
-
+//  ¯\_(ツ)_/¯
 
 let grid;
 
@@ -13,6 +13,10 @@ let dragSpeed = 9;
 let cellSize;
 let pX = 0;
 let pY = 0;
+let enemyX = 1;
+let enemyY = 0;
+let gameON = false;
+let favor;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -21,16 +25,28 @@ function setup() {
   grid[pY][pX] = 9;
 
   if (width < height) {
-    cellSize = width/ROWS;
+    favor = width;
   }
   else {
-    cellSize = height/ROWS;
+    favor = height;
   }
+  cellSize = favor/ROWS;
+
+  fill("green");
+  textAlign(CENTER);
+  textSize(favor/5);
+  
+
+  gameON = true;
 }
 
 function draw() {
-  background(220);
-  displayGrid();
+  if (gameON){
+    background(220);
+    enemyMove();
+    displayGrid();
+  }
+  
 }
 
 function keyTyped() {
@@ -79,19 +95,19 @@ function moveP(x, y) {
 
 function moveEnemy(x, y) {
   //sanity check for edge cases
-  if (pX + x >= 0 && pX + x < COLS &&
-    pY + y >= 0 && pY + y < ROWS) {
+  if (enemyX + x >= 0 && enemyX + x < COLS &&
+    enemyY + y >= 0 && enemyY + y < ROWS) {
   
     //check if going to hit wall
-    if (grid[pY+y][pX+x] === 0) {
-      let tempX = pX;
-      let tempY = pY;
+    if (grid[enemyY+y][enemyX+x] === 0) {
+      let tempX = enemyX;
+      let tempY = enemyY;
   
-      pX += x;
-      pY += y;
+      enemyX += x;
+      enemyY += y;
   
       //update grid
-      grid[pY][pX] = 5;
+      grid[enemyY][enemyX] = 5;
       grid[tempY][tempX] = 1;
     }
   }
@@ -99,18 +115,21 @@ function moveEnemy(x, y) {
 
 function enemyMove() {
   let rand = random(100);
-  if (rand <= 25) { //move down
-    moveP(0, 1);
+  if (frameCount % 15 === 0) {
+    if (rand <= 25) { //move down
+      moveEnemy(0, 1);
+    }
+    else if (rand <= 50) { //move up
+      moveEnemy(0, -1);
+    }
+    else if (rand <= 75) { //move right
+      moveEnemy(1, 0);
+    }
+    else if (rand <= 100) { //move left
+      moveEnemy(-1, 0);
+    }  
   }
-  else if (rand <= 50) { //move up
-    moveP(0, -1);
-  }
-  else if (rand <= 75) { //move right
-    moveP(1, 0);
-  }
-  else if (rand <= 100) { //move left
-    moveP(-1, 0);
-  }
+
 }
 
 function mousePressed() {
