@@ -15,15 +15,17 @@ let pX = 0;
 let pY = 0;
 let enemyX = 1;
 let enemyY = 0;
-let gameON = false;
+let gameON = false; // sets if game is in play
+let noLose = true;
+let creative = false;
 let favor;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   grid = createEmptyGrid(ROWS, COLS);
-
+  
   grid[pY][pX] = 9;
-
+  
   if (width < height) {
     favor = width;
   }
@@ -33,10 +35,10 @@ function setup() {
   cellSize = favor/ROWS;
 
   fill("green");
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
   textSize(favor/5);
+  text("annnnnnyaaa", favor/12, favor/12);
   
-
   gameON = true;
 }
 
@@ -50,8 +52,13 @@ function draw() {
 }
 
 function keyTyped() {
-  if (key === "r") {
-    grid = createRandomGrid(ROWS, COLS);
+  if (creative) {
+    if (key === "r") {
+      grid = createRandomGrid(ROWS, COLS);
+    }
+    if (key === "e") {
+      grid = createEmptyGrid(ROWS, COLS);
+    }
   }
   if (key === "s") { //move down
     moveP(0, 1);
@@ -65,11 +72,8 @@ function keyTyped() {
   if (key === "a") { //move left
     moveP(-1, 0);
   }
-  if (key === " ") { //move left
+  if (key === " ") { //log mouse position
     console.log(mouseX, mouseY);
-  }
-  if (key === "e") {
-    grid = createEmptyGrid(ROWS, COLS);
   }
 }
 
@@ -116,16 +120,16 @@ function moveEnemy(x, y) {
 function enemyMove() {
   let rand = random(100);
   if (frameCount % 15 === 0) {
-    if (rand <= 25) { //move down
+    if (rand <= 25) { //move down if less than 25
       moveEnemy(0, 1);
     }
-    else if (rand <= 50) { //move up
+    else if (rand <= 50) { //move up if less than 50
       moveEnemy(0, -1);
     }
-    else if (rand <= 75) { //move right
+    else if (rand <= 75) { //move right if less than 75
       moveEnemy(1, 0);
     }
-    else if (rand <= 100) { //move left
+    else if (rand <= 100) { //move left if less than 100
       moveEnemy(-1, 0);
     }  
   }
