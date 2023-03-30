@@ -37,7 +37,7 @@ function setup() {
   fill("green");
   textAlign(CENTER, CENTER);
   textSize(favor/5);
-  text("annnnnnyaaa", favor/12, favor/12);
+  text("annnnnnyaaa", favor/2, favor/2);
   
   gameON = true;
 }
