@@ -43,7 +43,7 @@ function setup() {
 }
 
 function draw() {
-  if (gameON){
+  if (gameON && frameCount > 300){
     background(220);
     enemyMove();
     displayGrid();
