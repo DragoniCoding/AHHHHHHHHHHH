@@ -16,7 +16,7 @@ let pY = 0;
 let enemyX = 1;
 let enemyY = 0;
 let gameON = false; // sets if game is in play
-let noLose = true;
+let noLose = true; // adds or removes fail condition
 let creative = false;
 let favor;
 
@@ -37,7 +37,7 @@ function setup() {
   fill("green");
   textAlign(CENTER, CENTER);
   textSize(favor/5);
-  text("annnnnnyaaa", favor/2, favor/2);
+  text("annnnnnyaaa", favor/3, favor/2);
   
   gameON = true;
 }
@@ -45,13 +45,20 @@ function setup() {
 function draw() {
   if (gameON && frameCount > 300){
     background(220);
-    enemyMove();
+    enemyMovement();
     displayGrid();
+    if (frameCount > 1000) {
+      winOrLose();
+    }
   }
   
 }
 
 function keyTyped() {
+  if (key === "c") { //move down
+    creative = !creative;
+    setup();
+  }
   if (creative) {
     if (key === "r") {
       grid = createRandomGrid(ROWS, COLS);
@@ -60,21 +67,24 @@ function keyTyped() {
       grid = createEmptyGrid(ROWS, COLS);
     }
   }
-  if (key === "s") { //move down
-    moveP(0, 1);
+  if (frameCount > 100) {
+    if (key === "s") { //move down
+      moveP(0, 1);
+    }
+    if (key === "w") { //move up
+      moveP(0, -1);
+    }
+    if (key === "d") { //move right
+      moveP(1, 0);
+    }
+    if (key === "a") { //move left
+      moveP(-1, 0);
+    }
+    if (key === " ") { //log mouse position
+      console.log(mouseX, mouseY);
+    }
   }
-  if (key === "w") { //move up
-    moveP(0, -1);
-  }
-  if (key === "d") { //move right
-    moveP(1, 0);
-  }
-  if (key === "a") { //move left
-    moveP(-1, 0);
-  }
-  if (key === " ") { //log mouse position
-    console.log(mouseX, mouseY);
-  }
+
 }
 
 function moveP(x, y) {
@@ -82,7 +92,7 @@ function moveP(x, y) {
   if (pX + x >= 0 && pX + x < COLS &&
     pY + y >= 0 && pY + y < ROWS) {
   
-    //check if going to hit wall
+    //check if going to clean already clean
     if (grid[pY+y][pX+x] === 1) {
       let tempX = pX;
       let tempY = pY;
@@ -102,7 +112,7 @@ function moveEnemy(x, y) {
   if (enemyX + x >= 0 && enemyX + x < COLS &&
     enemyY + y >= 0 && enemyY + y < ROWS) {
   
-    //check if going to hit wall
+    //check if going to hit trash
     if (grid[enemyY+y][enemyX+x] === 0) {
       let tempX = enemyX;
       let tempY = enemyY;
@@ -117,7 +127,7 @@ function moveEnemy(x, y) {
   }
 }
 
-function enemyMove() {
+function enemyMovement() {
   let rand = random(100);
   if (frameCount % 15 === 0) {
     if (rand <= 25) { //move down if less than 25
@@ -133,6 +143,10 @@ function enemyMove() {
       moveEnemy(-1, 0);
     }  
   }
+
+}
+
+function winOrLose(){
 
 }
 
@@ -162,6 +176,9 @@ function mouseDragged() {
   }
 }
 
+function mouseClicked() {
+
+}
 
 function displayGrid() {
   for (let y = 0; y < ROWS; y++) {
