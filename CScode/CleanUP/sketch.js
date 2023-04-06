@@ -42,6 +42,7 @@ function setup() {
   }
   cellSize = favor/ROWS;
   
+  gameON = true;
 }
 
 function draw() {
@@ -55,10 +56,13 @@ function draw() {
   }
   else if (!gameON && game === 1) {
     textAlign(CENTER, CENTER);
-    textSize(favor/5);
+    textSize(favor/13);
     if (won) {
-      fill("green");
-      text("annnnnnyaaa", favor/3, favor/2); 
+      fill("darkred");
+      text("LOST", favor/2, favor/3); 
+      fill("purple");
+      textSize(favor/30);
+      text("Play Again?", favor/2, favor - favor/5);
     }
 
   }
@@ -107,7 +111,7 @@ function keyTyped() {
     }
   }
   if (key === "g" && game === 0) { // begins the game
-    gameON = !gameON;
+    gameON = true;
     game = 1;
   }
 }
@@ -136,8 +140,25 @@ function playerNeighbor() { // checks if player has any paths
   let neighbors = 0;
   //sanity check for edges
   for (let i = 0; i<9; i++) {
-    if (pX - 1 >= 0 && pX + 1 < COLS && pY - 1 >= 0 && pY + 1 < ROWS) {
-      console.log();
+    if (pX - 1 >= 0) {
+      if (grid[pY][pX - 1] === 1) {
+        neighbors++;
+      }
+    } 
+    if (pX + 1 < COLS) {
+      if (grid[pY][pX + 1] === 1) {
+        neighbors++;
+      }
+    } 
+    if (pY - 1 >= 0) {
+      if (grid[pY - 1][pX] === 1) {
+        neighbors++;
+      }
+    } 
+    if (pY + 1 < ROWS) {
+      if (grid[pY + 1][pX] === 1) {
+        neighbors++;
+      }
     }
   }
   return neighbors;
@@ -184,10 +205,12 @@ function enemyMovement() {
 }
 
 function winOrLose(){
-  if (playerNeighbor() === 0) {
+  if (playerNeighbor() === 0 && !noLose) {
+    gameON = false;
+  }
+  else if (gameON) {
     console.log();
   }
-
 }
 
 function mousePressed() {
