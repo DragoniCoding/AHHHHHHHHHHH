@@ -79,7 +79,7 @@ function draw() {
     textAlign(CENTER, CENTER);
     textSize(favor / 13);
     if (!won) {
-      fill("darkred");
+      fill("red");
       text("LOST", favor / 2, favor / 3);
       fill("purple");
       textSize(favor / 20);
