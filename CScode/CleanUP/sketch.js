@@ -59,7 +59,7 @@ function setup() {
 
 function draw() {
   if (game === 0) {
-    background(190);
+    background(90);
     textAlign(CENTER, CENTER);
     textSize(favor / 13);
     fill("lime");
