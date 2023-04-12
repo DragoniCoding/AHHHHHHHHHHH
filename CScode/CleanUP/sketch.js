@@ -59,7 +59,7 @@ function setup() {
 
 function draw() {
   if (game === 0) {
-    background(135);
+    background(190);
     textAlign(CENTER, CENTER);
     textSize(favor / 13);
     fill("lime");
@@ -70,12 +70,12 @@ function draw() {
   }
 
   if (gameON) {
-    background(220);
+    background(170);
     enemyMovement();
     displayGrid();
     winOrLose();
   } else if (!gameON && game === 1) {
-    background(135);
+    background(90);
     textAlign(CENTER, CENTER);
     textSize(favor / 13);
     if (!won) {
