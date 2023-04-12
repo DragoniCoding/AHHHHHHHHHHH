@@ -13,6 +13,7 @@
 // pressing c toggles if you can change the board
 // r to randomize the board, e to empty the board
 // and pressing space console logs the current grid,,, or at least it's supposed to
+// If I'm being honest, it's missing a lot, but I'm tired and sick and my head hurts, so I AM DONE
 
 let grid;
 
@@ -58,6 +59,7 @@ function setup() {
 
 function draw() {
   if (game === 0) {
+    background(135);
     textAlign(CENTER, CENTER);
     textSize(favor / 13);
     fill("lime");
@@ -73,6 +75,7 @@ function draw() {
     displayGrid();
     winOrLose();
   } else if (!gameON && game === 1) {
+    background(135);
     textAlign(CENTER, CENTER);
     textSize(favor / 13);
     if (!won) {
