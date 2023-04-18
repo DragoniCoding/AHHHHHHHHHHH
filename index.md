@@ -11,6 +11,7 @@
 - [createGrid](CScode/gridCreation/)
 - [Game of Life](CScode/LifeGame/)
 - [Movement Within Grid](CScode/GridObjectMovement/)
+- [Fireworks OOP](CScode/FireClass/)
 
 ## Prejects
 - [arrayObjection](CScode/arrayArt/)
